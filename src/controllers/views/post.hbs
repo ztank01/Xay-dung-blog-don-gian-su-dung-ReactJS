@@ -1,0 +1,17 @@
+<a href = "http://localhost:5000" class="button"><button>Home</button></a>
+<a href = "http://localhost:5000/post/update/{{postID}}" class="button"><button>Edit This Post</button></a>
+<a href = "http://localhost:5000/post/delete/{{postID}}" class="button"><button>Delete This Post</button></a>
+<h1>Post {{postID}}</h1>
+<p>{{postContent}}</p><br>
+<form id="newComment" action="/comment/postComment" method="POST">
+    <input type="hidden" name="postID" value="{{postID}}">
+    <label for="comment">Comment</label><br>
+    <textarea id="comment" rows="10" cols="75" name="comment" form="newComment" placeholder="Enter Comment Here..." ></textarea><br>
+    <input type="submit" value="Comment">
+</form>
+<ul>
+    {{#each commentList}}
+        <p>{{this}}</p>
+    {{/each}}
+</ul>
+

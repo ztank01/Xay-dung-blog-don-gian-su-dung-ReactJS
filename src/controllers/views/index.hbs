@@ -1,0 +1,7 @@
+<h1>{{caption}}</h1>
+<ul>
+    {{#each postList}}
+        <li><a href="http://localhost:5000/post/{{id}}">Post {{id}}</a></li>
+    {{/each}}
+</ul>
+<a href = "http://localhost:5000/post/new" class="button"><button>Create New Post</button></a>

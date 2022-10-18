@@ -1,16 +1,21 @@
-import React from "react";
+import { React } from "react";
 import { Link } from 'react-router-dom';
 
-function Home() {
+
+function Home(props) {
+   
+    console.log(props);
     return (
         <div>
-            {/* <h1>{{ caption }}</h1> */}
-            <ul>
-                {/* {{ #each postList }}
-                <li><a href="http://localhost:5000/post/{{id}}">Post {{ id }}</a></li>
-                {{/ each}} */}
-            </ul>
-            <Link to="/post/new" class="button"><button>Create New Post</button></Link>
+            <h1>Post List</h1>
+            {
+                props.data.map((item, index) => {
+                    return (
+                        <li key={index}><Link to={`/post/?id=${item.id}`} state={{ id: `${item.id}`}}>Post {item.id}</Link></li>
+                    )
+                })
+            }
+            <Link to="/post/new"><button>Create New Post</button></Link>
         </div>
     )
 }
